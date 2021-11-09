@@ -11,12 +11,21 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     Button button;
     Button button_1;
+    Button button_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button=(Button)findViewById(R.id.button);
         button_1=(Button)findViewById(R.id.button2);
+        button_2=(Button)findViewById(R.id.button3);
+        button_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoQuiz();
+            }
+        });
         button_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(my_intent);
             }
         });
+    }
+
+    private void gotoQuiz() {
+        Intent my_intent=new Intent(MainActivity.this,Quiz.class);
+        startActivity(my_intent);
     }
 
     private void gotoUrl(String s) {

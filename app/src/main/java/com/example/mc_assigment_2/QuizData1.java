@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class QuizData extends AppCompatActivity {
-    int qCounter=0;
+public class QuizData1 extends AppCompatActivity {
+    int qCounter=1;
     int totalQuestions=5;
-    TextView textt,textQNo,textScore;
+    TextView textt,textQNo;
     RadioButton rb1,rb2,rb3;
     RadioGroup radiogroup;
     Button btn_next;
@@ -25,26 +25,34 @@ public class QuizData extends AppCompatActivity {
     boolean answered;
     int randomNumber;
     String i_alpha;
-    String throat[]={ "ہ", "ع","ح","أ","غ","خ"};
-    int m_throat=1,e_throat=2,s_throat=3;
-    String middle_t[]={"ح","ع"};
-    String start_t[]={"خ","غ"};
-    String end_t[]={"أ","ة"};
+
+    String nose[]={ "م","ن"};
+
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_data);
+        setContentView(R.layout.activity_quiz_data1);
+
+        Intent prev_data=getIntent();
+        String msg=prev_data.getStringExtra("score");
+        //score= Integer.valueOf(msg);  //converting to a value the score
+        TextView   textScore=findViewById(R.id.TextScore);
+        textScore.setText(msg);
+
+
+
 
         Random r=new Random();
-        randomNumber=r.nextInt(throat.length);
-         i_alpha=	throat[randomNumber]; //saving in string
+        randomNumber=r.nextInt(nose.length);
+        i_alpha=	nose[randomNumber]; //saving in string
 
         rb1=findViewById(R.id.rb1);
         rb2=findViewById(R.id.rb2);
         rb3=findViewById(R.id.rb3);
         textQNo=findViewById(R.id.textQuestionNo);
-        textScore=findViewById(R.id.TextScore);
+
         radiogroup=findViewById(R.id.radioGroup);
         btn_next=findViewById(R.id.btnNext);
 
@@ -58,13 +66,13 @@ public class QuizData extends AppCompatActivity {
                     if(rb1.isChecked()||rb2.isChecked()||rb3.isChecked())
                     {
                         checkAnswer();
-                        Intent intt=new Intent(QuizData.this,QuizData1.class);
+                        Intent intt=new Intent(QuizData1.this,QuizData2.class);
                         intt.putExtra("score",score);
                         intt.putExtra("question_left",qCounter);
                         startActivity(intt);
                     }
                     else{
-                        Toast.makeText(QuizData.this,"please select an option",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(QuizData1.this,"please select an option",Toast.LENGTH_SHORT).show();
                     }
                 }else
                 {
@@ -72,10 +80,6 @@ public class QuizData extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
 
 
 
@@ -91,6 +95,7 @@ public class QuizData extends AppCompatActivity {
         if(answer_no==getCorrectAnswer())
         {
             score++;
+            TextView   textScore=findViewById(R.id.TextScore);
             textScore.setText("Score: "+score);
 
         }
@@ -119,38 +124,17 @@ public class QuizData extends AppCompatActivity {
             btn_next.setText("Next");
         }
         else
-            {
-                btn_next.setText("Finish");
+        {
+            btn_next.setText("Finish");
         }
 
 
     }
 
-    private int getCorrectAnswer() { //change kroo
-        for(int j=0;j<start_t.length;j++)
-        {
-            if(i_alpha==start_t[j])
-            {
-                return 1;
-            }
-
-        }
-        for(int j=0;j<middle_t.length;j++)
-        {
-            if(i_alpha==middle_t[j])
-            {
-                return 2;
-            }
-
-        }
-        for(int j=0;j<end_t.length;j++)
-        {
-            if(i_alpha==end_t[j])
-            {
-                return 3;
-            }
-
-        }
-        return -1;
+    private int getCorrectAnswer() {
+  return 2;
     }
+
+
+
 }

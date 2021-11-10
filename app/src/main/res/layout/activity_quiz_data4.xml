@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizData3">
+    tools:context=".QuizData4">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Questions: 4/5"
+            android:text="Questions: 3/5"
             android:textColor="@color/black"
             android:textSize="17sp"
             android:id="@+id/textQuestionNo"
@@ -55,7 +55,7 @@
                 android:id="@+id/rb1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="produced from the  of Throat"
+                android:text="Rounded tip of the tongue touching the base of  frontal 8 teeth"
                 android:textSize="20sp" />
 
 
@@ -63,14 +63,32 @@
                 android:id="@+id/rb2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mouth empty space"
+                android:text="Rounded tip of the tongue touching the base of the frontal 6 teeth"
                 android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rb3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="produced from the lips"
+                android:text="Rounded tip of the tongue and touching base of the frontal 4 teeth"
+                android:textSize="20sp" />
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Tip of the tongue touching the base of the front 2 teeth"
+                android:textSize="20sp" />
+            <RadioButton
+                android:id="@+id/rb5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Tip of the tongue touching the tip of the frontal 2 teeth"
+                android:textSize="20sp" />
+            <RadioButton
+                android:id="@+id/rb6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Tip of the tongue comes between the front top and bottom teeth"
                 android:textSize="20sp" />
 
 
@@ -78,15 +96,16 @@
 
 
         </RadioGroup>
+
         <Button
             android:id="@+id/btnNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/radioGroup"
             android:text="Next"
-            android:textSize="20sp"
             android:textColor="@color/black"
-            android:textStyle="italic"/>
+            android:textSize="20sp"
+            android:textStyle="italic" />
 
 
 

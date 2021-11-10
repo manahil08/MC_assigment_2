@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MC_ASSIGMENT_2">
         <activity
+            android:name=".QuizData5"
+            android:exported="true" />
+        <activity
+            android:name=".QuizData4"
+            android:exported="true" />
+        <activity
             android:name=".QuizData3"
             android:exported="true" />
         <activity

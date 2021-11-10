@@ -14,12 +14,12 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class QuizData2 extends AppCompatActivity {
-    int qCounter=3;
+public class QuizData4 extends AppCompatActivity {
+    int qCounter=5;
 
     int totalQuestions=5;
     TextView textt,textQNo;
-    RadioButton rb1,rb2,rb3,rb4;
+    RadioButton rb1,rb2,rb3,rb4,rb5,rb6;
     RadioGroup radiogroup;
     Button btn_next;
     int score;
@@ -27,18 +27,18 @@ public class QuizData2 extends AppCompatActivity {
     int randomNumber;
     String i_alpha;
 
-    String lip[]={ "ف","ب","م","و"};
-    String tip="ف";
-    String in_both="ب";
-   String  out_both="م";
-   String roud_both="و";
-
+    String tounge[]={ "ر","ت د ط","ظ ذ ث","ص ز س","ل","ن"};
+    String rt_8="ل";
+    String rt_6="ن";
+    String  rt_4="ر";
+    String tt_2="ت د ط";
+    String tt_22="ظ ذ ث";
+    String tc="ص ز س";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_data2);
-
+        setContentView(R.layout.activity_quiz_data4);
         Intent prev_data=getIntent();
         String msg=prev_data.getStringExtra("score");
         score= Integer.valueOf(msg);  //converting to a value the score
@@ -49,13 +49,15 @@ public class QuizData2 extends AppCompatActivity {
 
 
         Random r=new Random();
-        randomNumber=r.nextInt(lip.length);
-        i_alpha=	lip[randomNumber]; //saving in string
+        randomNumber=r.nextInt(tounge.length);
+        i_alpha=	tounge[randomNumber]; //saving in string
 
         rb1=findViewById(R.id.rb1);
         rb2=findViewById(R.id.rb2);
         rb3=findViewById(R.id.rb3);
         rb4=findViewById(R.id.rb4);
+        rb5=findViewById(R.id.rb5);
+        rb6=findViewById(R.id.rb6);
         textQNo=findViewById(R.id.textQuestionNo);
 
         radiogroup=findViewById(R.id.radioGroup);
@@ -72,13 +74,13 @@ public class QuizData2 extends AppCompatActivity {
                     {
                         checkAnswer();
                         String s=Integer.toString(score);//sending data
-                        Intent intt=new Intent(QuizData2.this,QuizData3.class);
+                        Intent intt=new Intent(QuizData4.this,QuizData5.class);
                         intt.putExtra("score",s);
                         intt.putExtra("question_left",qCounter);
                         startActivity(intt);
                     }
                     else{
-                        Toast.makeText(QuizData2.this,"please select an option",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(QuizData4.this,"please select an option",Toast.LENGTH_SHORT).show();
                     }
                 }else
                 {
@@ -86,8 +88,6 @@ public class QuizData2 extends AppCompatActivity {
                 }
             }
         });
-
-
     }
     private void checkAnswer()
     {
@@ -106,6 +106,8 @@ public class QuizData2 extends AppCompatActivity {
         rb2.setTextColor(Color.RED);
         rb3.setTextColor(Color.RED);
         rb4.setTextColor(Color.RED);
+        rb5.setTextColor(Color.RED);
+        rb6.setTextColor(Color.RED);
         switch(getCorrectAnswer())
         {
             case 1:
@@ -125,6 +127,14 @@ public class QuizData2 extends AppCompatActivity {
                 rb4.setTextColor(Color.GREEN);
 
                 break;
+            case 5:
+                rb5.setTextColor(Color.GREEN);
+
+                break;
+            case 6:
+                rb6.setTextColor(Color.GREEN);
+
+                break;
 
         }
         if(qCounter<totalQuestions)
@@ -140,21 +150,29 @@ public class QuizData2 extends AppCompatActivity {
     }
 
     private int getCorrectAnswer() {
-        if(i_alpha==tip)
+        if(i_alpha==rt_8)
         {
             return 1;
         }
-        if(i_alpha==in_both)
+        if(i_alpha==rt_6)
         {
             return 2;
         }
-        if(i_alpha==out_both)
+        if(i_alpha==rt_4)
         {
             return 3;
         }
-        if(i_alpha==roud_both)
+        if(i_alpha==tt_2)
         {
             return 4;
+        }
+        if(i_alpha==tt_22)
+        {
+            return 5;
+        }
+        if(i_alpha==tc)
+        {
+            return 6;
         }
         return -1;
     }

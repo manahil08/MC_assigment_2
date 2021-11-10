@@ -67,8 +67,9 @@ public class QuizData1 extends AppCompatActivity {
                     if(rb1.isChecked()||rb2.isChecked()||rb3.isChecked())
                     {
                         checkAnswer();
+                        String s=Integer.toString(score);//sending data
                         Intent intt=new Intent(QuizData1.this,QuizData2.class);
-                        intt.putExtra("score",score);
+                        intt.putExtra("score",s);
                         intt.putExtra("question_left",qCounter);
                         startActivity(intt);
                     }

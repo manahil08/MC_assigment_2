@@ -25,7 +25,7 @@ int score;
             public void onClick(View v) {
                 Intent sendd=new Intent();
                 sendd.setAction(Intent.ACTION_SEND);
-                sendd.putExtra(Intent.EXTRA_TEXT,"thankyou!!");
+                sendd.putExtra(Intent.EXTRA_TEXT,"my scores for Quiz are:"+msg);
                 sendd.setType("text/plain");
                 Intent sharee=Intent.createChooser(sendd,null);
                 startActivity(sharee);

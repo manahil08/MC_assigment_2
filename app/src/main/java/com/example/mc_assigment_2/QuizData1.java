@@ -15,7 +15,8 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class QuizData1 extends AppCompatActivity {
-    int qCounter=1;
+    int qCounter=2;
+
     int totalQuestions=5;
     TextView textt,textQNo;
     RadioButton rb1,rb2,rb3;
@@ -37,9 +38,9 @@ public class QuizData1 extends AppCompatActivity {
 
         Intent prev_data=getIntent();
         String msg=prev_data.getStringExtra("score");
-        //score= Integer.valueOf(msg);  //converting to a value the score
+        score= Integer.valueOf(msg);  //converting to a value the score
         TextView   textScore=findViewById(R.id.TextScore);
-        textScore.setText(msg);
+        textScore.setText("Score: "+msg);
 
 
 

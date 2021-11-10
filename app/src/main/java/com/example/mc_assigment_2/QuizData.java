@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class QuizData extends AppCompatActivity {
-    int qCounter=0;
+    int qCounter=1;
     int totalQuestions=5;
     TextView textt,textQNo,textScore;
     RadioButton rb1,rb2,rb3;
@@ -58,8 +58,9 @@ public class QuizData extends AppCompatActivity {
                     if(rb1.isChecked()||rb2.isChecked()||rb3.isChecked())
                     {
                         checkAnswer();
+                        String s=Integer.toString(score);//sending data
                         Intent intt=new Intent(QuizData.this,QuizData1.class);
-                        intt.putExtra("score",score);
+                        intt.putExtra("score",s);
                         intt.putExtra("question_left",qCounter);
                         startActivity(intt);
                     }
